@@ -4,6 +4,18 @@
 
 
 hadoop jar /home/ubuntu/workspace/WordCount.jar org.bigdatatech.WordCount /user/WordCount/wc_input.txt /user/WordCount/Output/WC1/
+The above works if we donot mention the Main Class file while creating Jar.
+--------------------------
+If we mention the main class file while creating the Jar file, then you should not specify the main class file.
+hadoop jar /home/ubuntu/workspace/WordCount.jar /user/WordCount/wc_input.txt /user/WordCount/Output/WC1/
+
+in the above command the main class file is not given.
+This is because of the MANIFEST.MF file, and its contest are as below.
+Manifest-Version: 1.0
+Main-Class: org.bigdatatech.WordCount
+
+
+
 
 hadoop fs -ls -R /user/WordCount/Output/
 hadoop fs -cat /user/WordCount/Output/WC1/part-r-00000
