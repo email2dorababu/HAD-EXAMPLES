@@ -1,0 +1,24 @@
+hadoop fs -ls  hdfs://localhost:9000/user/
+
+displays the list of files.
+since the fs.defualt.name is set in the core-site.xml, we no need to specify it explicitly.
+
+For the program LocalToHdfsJavaClient.java, the run configuration is as shown below.
+
+/home/ubuntu/workspace/InputData/ExampleFile.txt  hdfs://localhost:9000/user/LocalToHdfs/
+
+In the program if you donot set the below line, it will give error.
+conf.addResource(new Path("/home/ubuntu/YARNBOX/hadoop-2.7.1/etc/hadoop/core-site.xml"));
+
+
+hadoop fs -cat  hdfs://localhost:9000/user/LocalToHdfs
+for CAT command if you give folder name, it displays all the file's contents.
+-------------------------------------
+
+remove the dst, to run the example again
+hadoop fs -rmr hdfs://localhost:9000/user/LocalToHdfs1
+
+Run the Program withh Progressable
+new Progressable(){ -- while writing the program do not forget to include the (), since it is a constructor.}
+
+here for every 4096 bytes the string is printed once.
