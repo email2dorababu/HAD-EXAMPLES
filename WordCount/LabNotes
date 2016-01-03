@@ -1,0 +1,9 @@
+
+
+
+
+
+hadoop jar /home/ubuntu/workspace/WordCount.jar org.bigdatatech.WordCount /user/WordCount/wc_input.txt /user/WordCount/Output/WC1/
+
+hadoop fs -ls -R /user/WordCount/Output/
+hadoop fs -cat /user/WordCount/Output/WC1/part-r-00000

@@ -25,7 +25,8 @@ public class WordCountMapper extends Mapper<LongWritable, Text, Text, IntWritabl
 	// map method runs for every input record
 
 	private Text word=new Text();
-
+	// private final static IntWritable one=new IntWritable(1);
+	
 	@Override
 	protected void map(LongWritable key, Text value, Context context)
 			throws IOException, InterruptedException {
@@ -36,7 +37,9 @@ public class WordCountMapper extends Mapper<LongWritable, Text, Text, IntWritabl
 		// We read each and every word and emit the word as key and value as 1.
 		while(itr.hasMoreTokens()){
 			word.set(itr.nextToken());
-			context.write(word, new IntWritable(1));
+			context.write(word, new IntWritable(1)); // every time invoking new is inefficent
+		// hence declare a IntWritable object and reuse it.	
+			// context.write(word, one);
 		}
 
 	}
