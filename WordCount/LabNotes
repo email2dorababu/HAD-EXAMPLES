@@ -1,4 +1,7 @@
 
+hadoop fs -mkdir /user
+hadoop fs -copyFromLocal /home/ubuntu/workspace/InputData/WordCount /user/
+
 
 
 
