@@ -1,9 +1,13 @@
 package org.bigdatatech;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FSDataInputStream;
 import org.apache.hadoop.fs.FSDataOutputStream;
@@ -30,6 +34,7 @@ public class HdfsToLocalClient {
 		} */
 		Path hdfsInputPath=new Path(args[0]);
 		//String localInputPath=args[1]; // local path is just a string
+		String localOutputPath=args[1]; // local path is just a string
 		Configuration conf=new Configuration();
 		//conf.set("fs.default.name", "hdfs://localhost:50070");
 		conf.addResource(new Path("/home/ubuntu/YARNBOX/hadoop-2.7.1/etc/hadoop/core-site.xml"));
@@ -53,10 +58,17 @@ public class HdfsToLocalClient {
 		
 		//InputStream is=new BufferedInputStream(new FileInputStream(localInputPath));
 		// The above InputStream,BufferedInputStream and FileInputStream are from java.io
-		IOUtils.copyBytes(is, System.out,4096,false); // if you mention true here, the stream is autoclosed.
-		is.seek(0);
-		IOUtils.copyBytes(is, System.out,4096,true);
+		
+		// OutputStream	 os=new BufferedOutputStream(new FileOutputStream(localOutputPath));
+		
+		IOUtils.copyBytes(is, System.out,4096,true); // if you mention true here, the stream is autoclosed.
+		// is.seek(0);
+		// IOUtils.copyBytes(is, os,4096,true);
+		//is.seek(0);
+		// IOUtils.copyBytes(is, System.out,4096,true);
 		System.out.println("FileTransfer completed");
+		
+		
 		
 
 	}
