@@ -1,3 +1,26 @@
 Copy the uncompressed file passwdinput
 hadoop fs -copyFromLocal passwdinput /user/LocalToHdfs/
 
+Get the uncompressed output file name
+
+CompressionCodec codec=(CompressionCodec) ReflectionUtils.newInstance(GzipCodec.class, conf);
+from the above line get the codec class for GzipCodec
+String hdfsOutputURI = hdfsFileUri+codec.getDefaultExtension();
+get the extension for that codec and append it to the input uncompressed file name
+
+get the input stream by  FileSystem, fs.Open() of input path
+get the output stream by FileSyste, fs.create() of the output path 
+
+Importent step here to compress the stream is 
+CompressionOutputStream out=codec.createOutputStream(os);
+
+Codec.createOutputStream(output stream) produces compressed stream, this we write that to the OutputPath
+
+IOUtils.copyBytes(in, out, conf,true); copies the input stream and compresses it and write to OutputStream
+
+when we mentioned true, it automatically closes the input and output streams once the copying is done.
+
+
+//hadoop fs -rm /user/LocalToHdfs/passwdinput.*
+
+
