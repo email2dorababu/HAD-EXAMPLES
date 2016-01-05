@@ -1,0 +1,3 @@
+Copy the uncompressed file passwdinput
+hadoop fs -copyFromLocal passwdinput /user/LocalToHdfs/
+

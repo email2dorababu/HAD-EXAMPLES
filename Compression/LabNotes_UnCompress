@@ -1,0 +1,22 @@
+for i in {1..5000};  do  cat /etc/passwd >> passwdinput ; done
+
+generate a sample file using the above command 
+
+/home/ubuntu/workspace/InputData/WordCount
+
+zip the file into tar.gz
+
+hadoop fs -copyFromLocal passwdinput.tar.gz /user/LocalToHdfs/
+
+hadoop fs -ls /user/LocalToHdfs/
+hadoop fs -cat /user/LocalToHdfs/passwdinput.tar.gz
+
+/user/LocalToHdfs/passwdinput.tar.gz 
+
+
+The program is accepting the above path only when the configuration file is added exclusively
+conf.addResource(new Path("/home/ubuntu/YARNBOX/hadoop-2.7.1/etc/hadoop/core-site.xml"));
+
+For TAR.gz file the extension of file is TAR, and we are able to see the contents.
+
+hadoop fs -cat /user/LocalToHdfs/passwdinput.tar
