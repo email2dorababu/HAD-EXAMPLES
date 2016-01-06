@@ -22,3 +22,39 @@ Main-Class: org.bigdatatech.WordCount
 
 hadoop fs -ls -R /user/WordCount/Output/
 hadoop fs -cat /user/WordCount/Output/WC1/part-r-00000
+
+
+
+-----------------------------------------------------------
+COMPRESSION OUTPUT - by Setting the values in mapred-site.xml
+
+<!-- 
+<property>
+  <name>mapreduce.output.fileoutputformat.compress</name>
+  <value>true</value>
+  
+</property>
+
+
+<property>
+  <name>mapreduce.output.fileoutputformat.compress.codec</name>
+  <value>org.apache.hadoop.io.compress.GzipCodec</value>
+  
+</property> -->
+
+
+hadoop jar /home/ubuntu/workspace/WordCount.jar org.bigdatatech.WordCount /user/LocalToHdfs/passwdinput /user/LocalToHdfs/compOut/
+
+hadoop fs -text /user/LocalToHdfs/compOut/*
+displays the part file output
+
+
+hadoop fs -ls /user/LocalToHdfs/compOut/
+Found 2 items
+-rw-r--r--   1 ubuntu supergroup          0 2016-01-06 12:40 /user/LocalToHdfs/compOut/_SUCCESS
+-rw-r--r--   1 ubuntu supergroup        909 2016-01-06 12:40 /user/LocalToHdfs/compOut/part-r-00000.gz
+
+
+i.e either by setting the configuration files(dynamic way) or by setting FileOutputFormat(this is static way)
+
+we can achieve the MR program output compressed.
