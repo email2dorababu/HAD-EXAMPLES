@@ -1,0 +1,17 @@
+Custom Writables are used for counting a text pair.
+this is called Bigrams
+
+Wikipedia page for Bi-Grams
+
+Like Word count, in Bigram(Digram) we count how many combinations of words are present?
+
+This is very much useful in LanguageModels for speech recognition, here we use this to find what is the mostlikely the next word based on the first word.
+
+N-Grams ( here n=2) used in probability, Communicatin theory(error correction and detection) and "data compression"
+
+3-gram sequences are combinations of 3 words.
+
+
+-----------------------------------
+Other places where we need custom writables are while processing 
+Logs etc.
