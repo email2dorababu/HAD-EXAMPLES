@@ -1,0 +1,29 @@
+hadoop jar /home/ubuntu/workspace/WordCount.jar org.bigdatatech.WordCount /user/WordCount/wc_input.txt /user/WordCount/Output/WC1/
+
+
+
+using eclipse below is the run configuration
+/user/LocalToHdfs/passwdinput /user/LocalToHdfs/wcout/
+
+
+
+Exported the Jar file with main class, hence no need to specify the main class.
+
+hadoop jar /home/ubuntu/workspace/WordCountCompress.jar /user/LocalToHdfs/passwdinput /user/LocalToHdfs/Out/
+
+In the Output Directory
+hadoop fs -ls /user/LocalToHdfs/Out
+Now we can see a part file with GZ extension, means the output is compressed.
+
+-rw-r--r--   1 ubuntu supergroup          0 2016-01-06 12:17 /user/LocalToHdfs/Out/_SUCCESS
+-rw-r--r--   1 ubuntu supergroup        909 2016-01-06 12:17 /user/LocalToHdfs/Out/part-r-00000.gz
+
+
+
+hadoop fs -cat /user/LocalToHdfs/Out/*
+will display the compressed file in non readable form
+
+use 
+hadoop fs -text /user/LocalToHdfs/Out/*
+
+will display the gz file contents in readable format.
