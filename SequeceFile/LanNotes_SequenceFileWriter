@@ -1,0 +1,27 @@
+This program is to convert a text file into Sequence file.
+
+For the result sequence file,
+we will have key as line no,  starting from 1, and the value of the sequence file is 
+the original text of the file.
+
+
+For SequenceFile Writer, you either need a FSDataOutputStream or FileSystem with Path.
+
+
+
+
+just start HDFS is enough
+hadoop jar /home/ubuntu/workspace/SequenceFileWriter.jar /user/data.seq
+
+
+hadoop fs -ls /user
+drwxr-xr-x   - ubuntu supergroup          0 2016-01-06 12:39 /user/LocalToHdfs
+-rw-r--r--   3 ubuntu supergroup        176 2016-01-04 05:04 /user/LocalToHdfs1
+-rw-r--r--   1 ubuntu supergroup       2768 2016-01-07 02:13 /user/data.seq
+
+hadoop fs -cat /user/data.seq
+will display the encoded version, non human readable
+
+hadoop fs -text /user/data.seq
+
+displays (detects using the signature of the file) human readable form.

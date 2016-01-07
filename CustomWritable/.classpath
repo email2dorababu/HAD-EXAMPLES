@@ -88,5 +88,6 @@
 	<classpathentry kind="lib" path="/home/ubuntu/YARNBOX/hadoop-2.7.1/share/hadoop/yarn/hadoop-yarn-server-sharedcachemanager-2.7.1.jar"/>
 	<classpathentry kind="lib" path="/home/ubuntu/YARNBOX/hadoop-2.7.1/share/hadoop/yarn/hadoop-yarn-server-tests-2.7.1.jar"/>
 	<classpathentry kind="lib" path="/home/ubuntu/YARNBOX/hadoop-2.7.1/share/hadoop/yarn/hadoop-yarn-server-web-proxy-2.7.1.jar"/>
+	<classpathentry kind="lib" path="/home/ubuntu/YARNBOX/hadoop-2.7.1/share/hadoop/hdfs/hadoop-hdfs-2.7.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

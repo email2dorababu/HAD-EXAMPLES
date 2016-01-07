@@ -1,0 +1,7 @@
+When you are running from Eclipse, you need to manually add the resource
+file to the configuration. otherwise error thrown.
+
+
+the build path contains the previously generated file in HDFS.
+
+/user/data.seq

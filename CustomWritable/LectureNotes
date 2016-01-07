@@ -69,8 +69,17 @@ and use this datatype in the bigram count( similar to wordcount )
 
 
 
+BIG NOTE - 
+
+public class BigramTextPair implements WritableComparable{} will give error
+in copareTo method. 
+it will ask for compareTo(object o) instead of compareTo(BigramTextPair obj)
+
+so you should inclde the below generic signature (WirtableComparable<T>)
+public class BigramTextPair implements WritableComparable<BigramTextPair> 
 
 
+Ref - public class BigramTextPair implements WritableComparable<BigramTextPair>
 
 
 

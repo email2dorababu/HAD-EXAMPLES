@@ -5,9 +5,10 @@ import java.io.IOException;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.WritableComparable;
 
+
 // added commons/lib, commons, mapreduce and yarn jar files
 
-public class BigramTextPair implements WritableComparable {
+public class BigramTextPair implements WritableComparable<BigramTextPair> {
 
 	 // Source -> implement unimplemented methods
 	// implement Object methods also. 
@@ -78,7 +79,7 @@ public class BigramTextPair implements WritableComparable {
 		
 	}
 
-	
+	@Override
 	public int compareTo(BigramTextPair tp) {
 		//TODO Auto-generated method stub
 		int cmp=first.compareTo(tp.first);
