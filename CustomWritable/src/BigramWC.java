@@ -45,6 +45,13 @@ public class BigramWC {
 		
 		// specify the reducer output key and value types
 		
+		
+		// Below two lines are mandatory
+		job.setMapOutputKeyClass(BigramTextPair.class);
+		job.setMapOutputValueClass(IntWritable.class);
+		
+		
+		
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
 		

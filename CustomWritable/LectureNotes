@@ -81,9 +81,51 @@ public class BigramTextPair implements WritableComparable<BigramTextPair>
 
 Ref - public class BigramTextPair implements WritableComparable<BigramTextPair>
 
+-----------------------------------
+
+Running
+
+hadoop fs -cat /user/LocalToHdfs/ExampleFile.txt
+
+hadoop jar /home/ubuntu/workspace/CustomWritable.jar  /user/LocalToHdfs/ExampleFile.txt  /user/LocalToHdfs/CustomWC/
+
+for Output give only folder name, because the MR creates _SUCCESS and part file.
 
 
+hadoop jar /home/ubuntu/workspace/CustomWritable.jar  /user/LocalToHdfs/ExampleFile.txt  /user/LocalToHdfs/CustomWC/
 
+hadoop fs -cat /user/LocalToHdfs/CustomWC/*
+
+
+-------------------------
+Hi this is the input file to program LocalToHdfsJavaClient API
+
+Copy the file from local file system to HDFS using Java Client.
+
+This is same as the CLI -copyFromLocal command
+
+Hi this is the input file to program LocalToHdfsJavaClient API
+
+Copy the file from local file system to HDFS using Java Client.
+
+This is same as the CLI -copyFromLocal command
+--------------------------------
+
+-copyFromLocal command	2
+Copy the	2
+HDFS using	2
+Hi this	2
+Java Client.	2
+LocalToHdfsJavaClient API	2
+This is	2
+file from	2
+input file	2
+is the	2
+local file	2
+same as	2
+system to	2
+the CLI	2
+to program	2
 
 
 

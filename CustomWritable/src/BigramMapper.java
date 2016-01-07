@@ -26,7 +26,7 @@ public class BigramMapper extends Mapper<LongWritable,Text,BigramTextPair,IntWri
 			word1.set(itr.nextToken());
 			
 			//In case of odd no of words in the line, the second word will be null
-			while(itr.hasMoreTokens()){
+			if(itr.hasMoreTokens() == true){
 				word2.set(itr.nextToken());
 			}
 					
