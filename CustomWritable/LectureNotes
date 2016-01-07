@@ -1,3 +1,23 @@
+
+Primitive Writables not always suitable some usecases.
+E.g. Say we need to process a 3D-points data.. the primitives writables are not sufficient.
+
+The 3D point contains values in 3 dimensional axis
+
+Class _3Dpoint{
+public float xaxis;
+public float yaxis;
+public float zaxis;
+}
+
+We may need operations like - compare two points, which is near to origin,
+find distance among the points etc methods.
+--------------------------------------------------
+This Program is to find Bigram Count (similar to word count - here it is text pair,
+ Occurrence of two words ).
+ This is very much used in Language Processing and Communication theory
+
+
 Custom Writables are used for counting a text pair.
 this is called Bigrams
 
@@ -15,3 +35,57 @@ N-Grams ( here n=2) used in probability, Communicatin theory(error correction an
 -----------------------------------
 Other places where we need custom writables are while processing 
 Logs etc.
+---------------------------------------------------------------------
+
+Writable interface - just contain methods to serialize and deserialize data
+public interface Writable{
+void readFileds(DataInput in);
+void write(DataOutput out);
+
+}
+
+WritableComparable need to implement additionally CompareTo method, 
+with which we will compare two WritableComparable Instances.
+
+CompareTo method is heavily used in MR sort and shuffle stages.
+
+so make sure that this compareTo method is implemented very efficiently.
+
+
+public interface WritableComparable extends Writable,Comparable{
+void readFileds(DataInput in);
+void write(DataOutput out);
+int compareTo(WritableComparable o);
+
+}
+
+In addition to above methods, Default java Object class contains 
+
+hashCode, equals and toString (no need to implement finalize and clone)
+------------------------------
+Our program implements Custom WritableComparable data type.
+and use this datatype in the bigram count( similar to wordcount )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
