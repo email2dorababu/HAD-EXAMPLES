@@ -10,3 +10,30 @@ hadoop fs -copyFromLocal  /home/ubuntu/workspace/InputData/ExampleFileNumbers.tx
 (specify the outfilename.
 
 
+hadoop jar /home/ubuntu/workspace/WordCountPartitioner.jar /user/LocalToHdfs/ExampleFileNumbers.txt /user/LocalToHdfs/PartitionerOut/
+
+YARN:>$ hadoop fs -ls -R /user/LocalToHdfs/PartitionerOut/
+
+/user/LocalToHdfs/PartitionerOut/_SUCCESS
+/LocalToHdfs/PartitionerOut/part-r-00000
+/user/LocalToHdfs/PartitionerOut/part-r-00001
+
+
+
+see each file outputs, 00000 file contains even numbers
+and 00001 contains odd numbers.
+
+
+Now how to set the no of reduce tasks in command prompt, so that we don't need to change the source code.
+hadoop jar /home/ubuntu/workspace/WordCountPartitioner.jar -D mapreduce.reduce.tasks=3 /user/LocalToHdfs/ExampleFileNumbers.txt /user/LocalToHdfs/PartitionerOut2/
+
+But this gives error.
+Input path does not exist: hdfs://localhost:9000/user/ubuntu/-D
+
+To give command line options, we must use GenericOptionsParser,Tool,Toolrunner.
+
+WordCountTool.java
+here while exporting do not select the main class.
+
+hadoop jar /home/ubuntu/workspace/WordCountPartitioner.jar WordCountTool -D mapred.reduce.tasks=3 /user/LocalToHdfs/ExampleFileNumbers.txt /user/LocalToHdfs/PartitionerOut6/
+Note that it is -D mapred.reduce.tasks=3 not mapreduce.reduce.tasks.

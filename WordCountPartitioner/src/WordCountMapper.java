@@ -18,7 +18,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 // decide the input and output types for the mapper
 
 // Now the data types are present in Hadoop Common Core jar file, these are heart of Hadoop
-public class WordCountMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
+public class WordCountMapper extends Mapper<LongWritable, Text, IntWritable, IntWritable>{
 
 
 	// Mapper class contains map method, which we override and implement out code
@@ -36,8 +36,8 @@ public class WordCountMapper extends Mapper<LongWritable, Text, Text, IntWritabl
 		StringTokenizer itr=new StringTokenizer(value.toString());
 		// We read each and every word and emit the word as key and value as 1.
 		while(itr.hasMoreTokens()){
-			word.set(itr.nextToken());
-			context.write(word, new IntWritable(1)); // every time invoking new is inefficent
+			// word.set(itr.nextToken());
+			context.write(new IntWritable(Integer.parseInt(itr.nextToken())), new IntWritable(1)); // every time invoking new is inefficent
 		// hence declare a IntWritable object and reuse it.	
 			// context.write(word, one);
 		}

@@ -2,11 +2,14 @@
 
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.*;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.util.Tool;
+import org.apache.hadoop.util.ToolRunner;
 
 /* 
 // Map Reduce Driver program
@@ -29,16 +32,19 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
  * 3. See all the WebUI logs and stats
  * 
  */
-
-
-public class WordCount {
+public class WordCountTool extends Configured implements Tool{
 	
-	public static void main(String[] args) throws Exception{
-		Configuration conf=new Configuration();
+	@Override
+	public int run(String[] args) throws Exception {
+		
+		//Comment the below line
+		// Configuration conf=new Configuration();
+		
+		Configuration conf=getConf();
 		// Job job=new Job(); deprecated in Hadoop 2
 		Job job=Job.getInstance(conf,"Word Count");  //Invoke the Static method.
 		
-		job.setJarByClass(WordCount.class); // set the driver class
+		job.setJarByClass(WordCountTool.class); // set the driver class
 		// Specify the Mapper and Reducer classes
 		// Here you need to specify class extension because framework gets the code using 
 		// Java reflection and substitutes the code
@@ -59,16 +65,21 @@ public class WordCount {
 		
 		//Added here
 		
-		job.setNumReduceTasks(2);
+		//job.setNumReduceTasks(2);
 		
 		
 		
 		// Run the job
-		System.exit(job.waitForCompletion(true)? 0:1 );
+		//Comment the below line
+		// System.exit(job.waitForCompletion(true)? 0:1 );
+		return job.waitForCompletion(true)?0:1;
+	}
+	
+	public static void main(String[] args) throws Exception{
 		
+		int exitCode=ToolRunner.run(new WordCountTool(), args);
+		System.exit(exitCode);
 		
 	}
 
 }
-
-
