@@ -1,0 +1,57 @@
+Here i send the configuration and other properties in command prompt 
+which is the main use of GenericOptionsParse,Tool,TollRunner
+
+// conf.addResource(new Path("/home/ubuntu/YARNBOX/hadoop-2.7.1/etc/hadoop/core-site.xml"));
+
+copied the same file TestDemo.java as TestDemo3.java.
+
+Run 1 with Arguments as
+-conf /home/ubuntu/YARNBOX/hadoop-2.7.1/etc/hadoop/core-site.xml
+
+fs.defaultFS	hdfs://localhost:9000
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+MAIN USE CASE OF THIS IS - 
+we will initially use the local filesystem or psudo distributed cluster
+for prototyping.
+
+and we specify the configuration file of Cluster to run the MR in the 
+fully distributed cluster. by just changing the -conf file.
+
+so we can rapidly change the configuration and speed up the development process.
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+
+
+Run 2 with Arguments as
+
+-D color=red
+
+
+Now in the console the below value is printed.
+color	red
+
+Run 3 with Arguments as
+
+-conf /home/ubuntu/YARNBOX/hadoop-2.7.1/etc/hadoop/core-site.xml 
+-D color=red -fs file:///
+
+fs.defaultFS	file:/// , i.e what ever value is there above, is overwritten by the 
+option -fs.
+
+Run 4 with Arguments as
+
+In cloud configuration with hadoop command
+-files file1,file2  - the local files file1,file2 are copied into HDFS, task's directory
+this is used in DistributedCache.
+
+
+
+Run 5 with Arguments as   
+-archives archive1,archive2  -- this command line option makes the archive files
+specified , are un archived and will be available to MR, in task folder.
+
+
+ 
+
+
