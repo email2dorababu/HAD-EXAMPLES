@@ -1,0 +1,12 @@
+Just include no of reducers.
+job.setNumReduceTasks(2);
+
+for i in {0..99} ; do echo $i ;done >>/home/ubuntu/workspace/InputData/ExampleFileNumbers.txt
+
+Note - no gaps b/n numbers and .. and always use {} for a sequence.
+
+
+hadoop fs -copyFromLocal  /home/ubuntu/workspace/InputData/ExampleFileNumbers.txt /user/LocalToHdfs/ExampleFileNumbers.txt
+(specify the outfilename.
+
+
