@@ -38,8 +38,12 @@ public class DistributedCacheDemo extends Configured implements Tool{
 	job.setMapperClass(DCMapper.class);
 	job.setReducerClass(DCReducer.class);
 		
-	//job.setOutputKeyClass(Text.class);
-	//job.setOutputValueClass(NullWritable.class);
+	job.setMapOutputKeyClass(Text.class);
+	job.setMapOutputValueClass(Text.class);
+	
+	
+	job.setOutputKeyClass(Text.class);
+	job.setOutputValueClass(NullWritable.class);
 		
 		
 		

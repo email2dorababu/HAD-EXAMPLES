@@ -48,7 +48,15 @@ hadoop fs -ls -R /user/Joins/
 cd /home/ubuntu/workspace
 
 
-hadoop jar DistributedCacheDemo.jar /user/Joins/Input/EmpInfo.txt /user/Joins/Output/
+hadoop jar DistributedCacheDemo.jar DistributedCacheDemo /user/Joins/Input/EmpInfo.txt /user/Joins/Output6/
+
+
+1	1	Ali	2000	01	Finance
+2	2	Bob	4000	02	HR
+3	3	Joy	5000	05	HouseKeeping
+4	4	Tim	7000	03	Travel
+5	5	Raj	8000	04	Admin
+
 
 
 

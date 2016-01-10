@@ -1,0 +1,21 @@
+These reduce side joins are more common.
+We see how to join the files used in MapSideJoins.
+
+We can join two large data sets using reduce side joins.
+
+The main idea is that we make sure that the joining keys are available to the reudcers.
+
+The MR shuffle and sort does this.
+
+For this, we need a custom writable(custom writable) to club the joining key of both data sets.
+
+
+Here we reuse the BigramTextPair
+
+to process EmpInfo, one mapper
+to process Dept details another mapper
+
+and the keys are compared in Reducer.
+ -----------------------------------------
+ 
+ 

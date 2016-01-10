@@ -63,9 +63,11 @@ public class DCMapper extends Mapper<LongWritable, Text, Text, Text>{
 				dept_name=(dept_name.equals(null)|| dept_name.equals(""))? "Not-Found" : dept_name ;
 			}
 		
-		key_out.set(EmpTableRow[0]);
+		key_out.set(EmpTableRow[0].toString());
 		
 		value_out.set(EmpTableRow[0]+"\t"+EmpTableRow[1]+"\t"+EmpTableRow[2]+"\t"+EmpTableRow[3]+"\t"+dept_name);
+		
+		
 		
 		context.write(key_out, value_out);
 	}
