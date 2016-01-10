@@ -18,10 +18,6 @@ public class BigramTextPair implements WritableComparable<BigramTextPair> {
 	private Text first;
 	private Text second;
 
-	
-
-
-
 	public Text getFirst() {
 		return first;
 	}
@@ -83,10 +79,13 @@ public class BigramTextPair implements WritableComparable<BigramTextPair> {
 	public int compareTo(BigramTextPair tp) {
 		//TODO Auto-generated method stub
 		int cmp=first.compareTo(tp.first);
+		
 		if(cmp !=0){
 			return cmp;
 		}
 		return second.compareTo(tp.second);
+		
+		
 	} 
 	
 

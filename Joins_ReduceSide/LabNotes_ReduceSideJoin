@@ -18,4 +18,32 @@ to process Dept details another mapper
 and the keys are compared in Reducer.
  -----------------------------------------
  
+ hadoop jar ReduceSideJoin.jar  /user/Joins/Input/EmpInfo.txt /user/Joins/Input/Dept.txt /user/ReduceJoins/Output1/
  
+ 
+ error means
+ WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+ 
+ job.waitForCompletion is not entered.
+ 
+
+The below 2 steps are mandatory, else gives error.
+
+job.setMapOutputKeyClass(Text.class);
+job.setMapOutputValueClass(BigramTextPair.class);
+		
+ 
+ 
+ simple Output without any join.
+ 
+01 DeptInfoDeptId	Finance
+01 EmpInfoDeptId	1	Ali	2000	01
+02 DeptInfoDeptId	HR
+02 EmpInfoDeptId	2	Bob	4000	02
+03 DeptInfoDeptId	Travel
+03 EmpInfoDeptId	4	Tim	7000	03
+04 DeptInfoDeptId	Admin
+04 EmpInfoDeptId	5	Raj	8000	04
+05 DeptInfoDeptId	HouseKeeping
+05 EmpInfoDeptId	3	Joy	5000	05
+06 DeptInfoDeptId	Marketing

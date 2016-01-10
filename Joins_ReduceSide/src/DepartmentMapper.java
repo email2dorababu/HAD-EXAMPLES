@@ -2,7 +2,7 @@ import java.io.IOException;
 import org.apache.hadoop.io.*;
 import org.apache.hadoop.mapreduce.Mapper;
 	
-public class DepartmentMapper extends Mapper<LongWritable, Text, Text, BigramTextPair> {
+public class DepartmentMapper extends Mapper<LongWritable, Text,  BigramTextPair,Text> {
 
 	
 	//private Text value_out=new Text();
@@ -15,10 +15,13 @@ public class DepartmentMapper extends Mapper<LongWritable, Text, Text, BigramTex
 		String EmpTableRow[] = value.toString().split("\t");
 		
 		// the table name and dept name in the text pair
-		joinKey.set(new Text("DeptInfoDeptId"),new Text(EmpTableRow[1]));
+		//joinKey.set(new Text("DeptInfoDeptId"),new Text(EmpTableRow[1]));
 		
 		//key is the dept id
-		context.write(new Text(EmpTableRow[0]),joinKey);
+		//context.write(new Text(EmpTableRow[0]),joinKey);
+joinKey.set(new Text(EmpTableRow[0]),new Text("DeptInfoDeptId"));
+		
+context.write(joinKey,new Text(EmpTableRow[1]));
 		
 		
 	}

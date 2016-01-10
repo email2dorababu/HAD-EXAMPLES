@@ -2,7 +2,7 @@ import java.io.IOException;
 import org.apache.hadoop.io.*;
 import org.apache.hadoop.mapreduce.Mapper;
 	
-public class EmpInfoMapper extends Mapper<LongWritable, Text,  Text,BigramTextPair> {
+public class EmpInfoMapper extends Mapper<LongWritable, Text,  BigramTextPair,Text> {
 
 	
 	//private Text value_out=new Text();
@@ -15,11 +15,11 @@ public class EmpInfoMapper extends Mapper<LongWritable, Text,  Text,BigramTextPa
 		String EmpTableRow[] = value.toString().split("\t");
 		
 		
-		joinKey.set(new Text("EmpInfoDeptId"),value);
+		// joinKey.set(new Text("EmpInfoDeptId"),value);
 		//value_out.set(EmpTableRow[0]+"\t"+EmpTableRow[1]+"\t"+EmpTableRow[2]+"\t"+EmpTableRow[3]);
+		joinKey.set(new Text(EmpTableRow[3]),new Text("EmpInfoDeptId"));
 		
-		
-		context.write(new Text(EmpTableRow[3]),joinKey);
+		context.write(joinKey,value);
 		
 		
 	}
