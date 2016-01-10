@@ -1,0 +1,57 @@
+//see codingjunkie.net/mapside-joins/
+
+Table 1 (Always Small Table):
+
+Department table with deptno and deptname(tab seperated)
+
+001    hadoop
+002    hive
+003    pig
+004    sqoop
+005    oozie
+006    mapreduce
+
+
+Table 2(Always LargeTable):
+
+Employee table with Employee info(tab separated)
+
+empid empname salary  deptid
+1    name     2000    001
+2    name2    4000    002
+3    name3    5000    005
+4    name4    7000    003
+5    name5    8000    004
+
+Desired Output
+
+1    name    2000    001    hadoop
+2    name2    4000    002    hive
+3    name3    5000    005    oozie
+4    name4    7000    003    pig
+5    name5    8000    004    sqoop
+-----------------------------------------------------
+
+Table 1 /user/Joins/Input/Dept.txt - Distributed cache file
+Table 2 /user/Joins/Input/EmpInfo.txt
+Result - 
+----------------------------------------------------
+Create the directories
+hadoop fs -mkdir  /user/Joins/
+hadoop fs -mkdir  /user/Joins/Input
+
+hadoop fs -copyFromLocal /home/ubuntu/workspace/InputData/Dept.txt /user/Joins/Input/Dept.txt
+hadoop fs -copyFromLocal /home/ubuntu/workspace/InputData/EmpInfo.txt /user/Joins/Input/EmpInfo.txt
+
+hadoop fs -ls -R /user/Joins/
+
+cd /home/ubuntu/workspace
+
+
+hadoop jar DistributedCacheDemo.jar /user/Joins/Input/EmpInfo.txt /user/Joins/Output/
+
+
+
+
+
+
