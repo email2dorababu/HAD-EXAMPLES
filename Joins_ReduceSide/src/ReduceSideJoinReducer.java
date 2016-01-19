@@ -12,9 +12,9 @@ public class ReduceSideJoinReducer
 //	private String str="";
 	private Text DeptName=new Text();
 	 
+	 
 	
-	
-	public void reduce(BigramTextPair key, Iterable<Text> values,
+	protected void reduce(BigramTextPair key, Iterable<Text> values,
 			Context context) throws IOException, InterruptedException {
 		
 		// show the output with the below code
@@ -29,8 +29,8 @@ public class ReduceSideJoinReducer
 	DeptName= new Text(itr.next());
 	while(itr.hasNext()){
 		Text empRec=itr.next();
-		// Text outVal=new Text(empRec.toString()+"\t"+DeptName.toString());
-		context.write(empRec, DeptName);
+		Text outVal=new Text(empRec.toString()+"\t"+DeptName.toString());
+		context.write(key.getFirst(), outVal);
 	}
 		
 }

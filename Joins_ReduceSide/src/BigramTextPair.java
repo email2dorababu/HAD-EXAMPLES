@@ -20,7 +20,7 @@ public class BigramTextPair implements WritableComparable<BigramTextPair> {
 
 	public Text getFirst() {
 		return first;
-	}
+	 }
 
 	public void setFirst(Text first) {
 		this.first = first;

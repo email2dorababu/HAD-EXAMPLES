@@ -15,13 +15,13 @@ public class ReduceSideJoinDriver {
 		
 		Configuration conf =new Configuration();
 		Job job=Job.getInstance(conf,"Reduce Side Join");
-		
+		 
 		job.setJarByClass(ReduceSideJoinDriver.class);
 	
 		Path EmpInfoPath=new Path(args[0]);
 		Path DeptPath=new Path(args[1]);
 		Path OutPath=new Path(args[2]);
-		
+		 
 		
 		MultipleInputs.addInputPath(job, EmpInfoPath, TextInputFormat.class,EmpInfoMapper.class);
 		MultipleInputs.addInputPath(job, DeptPath, TextInputFormat.class,DepartmentMapper.class);
