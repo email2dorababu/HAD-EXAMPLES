@@ -1,0 +1,19 @@
+FiledSelectionMapper and Reducer is similar to 
+Unix Cut command
+
+cut -c n filename(s)  - here n is the no of character to cut
+
+cut -f n finename(s) - here n is the number of the field to display
+
+cut -d: -f 1,3 filename(s) - here in above two commands the delimiter is tab character
+using -d command we can specify the delimiter of the text.
+
+
+cut -c 2-10 ExampleFile.txt  from character 2 to character 10 in each line
+cut -c 2,3,4,5 ExampleFile.txt from characters 2,3,4,5 of each line
+
+cut -d" " -f 1 ExampleFile.txt
+
+for Cat command the default delimiter is 'tab' hence we override with -d" " as space
+The delimiter must be single character.
+------------------------------------------------------------------

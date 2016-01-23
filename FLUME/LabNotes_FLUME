@@ -1,0 +1,31 @@
+
+
+cd /home/ubuntu/YARN/flumexxx/conf/
+
+and run the below commands
+
+
+Example.conf console as sink
+flume-ng agent --conf conf --conf-file example.conf --name a1 -Dflume.root.logger=INFO,console
+
+
+declare source,sink,channels
+define each source,sink and channles
+
+connect source and sink by the channel
+
+The example.conf is from - https://flume.apache.org/FlumeUserGuide.html
+
+
+
+
+
+
+
+HDFS Sink
+flume-ng agent --conf conf --conf-file HDFS_Sink.conf --name a1 -Dflume.root.logger=DEBUG,console -n agent
+
+Here , use the localhost:port used in core-site.xml
+
+The HDFS Sink is from
+https://christophermeiklejohn.com/flume/hdfs/2013/06/18/flume-ng-configuration-with-an-hdfs-sink.html
