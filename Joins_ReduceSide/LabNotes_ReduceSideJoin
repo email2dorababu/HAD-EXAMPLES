@@ -34,19 +34,14 @@ job.setMapOutputValueClass(BigramTextPair.class);
 		
  
  
- simple Output without any join.
-01 DeptInfoDeptId	Finance
-01 EmpInfoDeptId	7	jim	2000	01
-01 EmpInfoDeptId	6	DBA	2000	01
-01 EmpInfoDeptId	1	Ali	2000	01
-02 DeptInfoDeptId	HR
-02 EmpInfoDeptId	8	DBA	2000	02
-02 EmpInfoDeptId	2	Bob	4000	02
-03 DeptInfoDeptId	Travel
-03 EmpInfoDeptId	9	jim	2000	03
-03 EmpInfoDeptId	4	Tim	7000	03
-04 DeptInfoDeptId	Admin
-04 EmpInfoDeptId	5	Raj	8000	04
-05 DeptInfoDeptId	HouseKeeping
-05 EmpInfoDeptId	3	Joy	5000	05
-06 DeptInfoDeptId	Marketing
+EMPNO_EMPNAME_SALARY_DEPTID	DEPTID_DEPTNAME
+7	jim	2000	01	Finance
+6	DBA	2000	01	Finance
+1	Ali	2000	01	Finance
+8	DBA	2000	02	HR
+2	Bob	4000	02	HR
+9	jim	2000	03	Travel
+4	Tim	7000	03	Travel
+5	Raj	8000	04	Admin
+3	Joy	5000	05	HouseKeeping
+

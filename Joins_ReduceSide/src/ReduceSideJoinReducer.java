@@ -30,7 +30,9 @@ public class ReduceSideJoinReducer
 					
 		} */
 	Iterator<Text> itr=values.iterator();
-	DeptName= new Text(itr.next());
+	if(key.getSecond().toString().equals("DeptInfoDeptId")){
+		DeptName= new Text(itr.next());
+	}
 	while(itr.hasNext()){
 		Text empRec=itr.next();
 		//THe below line prints all content.
