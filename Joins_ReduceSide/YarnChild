@@ -1,0 +1,120 @@
+
+YARN:>$ jps
+3153 SecondaryNameNode
+3490 NodeManager
+4151 Jps
+2840 NameNode
+4009 MRAppMaster
+2972 DataNode
+3853 RunJar
+3357 ResourceManager
+4141 YarnChild
+2334 org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar
+4142 YarnChild
+
+
+YARN:>$ jps
+Picked up JAVA_TOOL_OPTIONS: -javaagent:/usr/share/java/jayatanaag.jar 
+3153 SecondaryNameNode
+3490 NodeManager
+2840 NameNode
+4009 MRAppMaster
+2972 DataNode
+4172 Jps
+3853 RunJar
+3357 ResourceManager
+4141 YarnChild
+2334 org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar
+4142 YarnChild
+
+
+YARN:>$ jps
+Picked up JAVA_TOOL_OPTIONS: -javaagent:/usr/share/java/jayatanaag.jar 
+3153 SecondaryNameNode
+3490 NodeManager
+2840 NameNode
+4185 Jps
+4009 MRAppMaster
+2972 DataNode
+3853 RunJar
+3357 ResourceManager
+4141 YarnChild
+2334 org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar
+4142 YarnChild
+YARN:>$ jps
+Picked up JAVA_TOOL_OPTIONS: -javaagent:/usr/share/java/jayatanaag.jar 
+3153 SecondaryNameNode
+3490 NodeManager
+2840 NameNode
+4009 MRAppMaster
+4201 Jps
+2972 DataNode
+3853 RunJar
+3357 ResourceManager
+4141 YarnChild
+2334 org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar
+4142 YarnChild
+YARN:>$ jps
+Picked up JAVA_TOOL_OPTIONS: -javaagent:/usr/share/java/jayatanaag.jar 
+3153 SecondaryNameNode
+3490 NodeManager
+4213 Jps
+2840 NameNode
+4009 MRAppMaster
+2972 DataNode
+3853 RunJar
+3357 ResourceManager
+4141 YarnChild
+2334 org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar
+4142 YarnChild
+YARN:>$ jps
+Picked up JAVA_TOOL_OPTIONS: -javaagent:/usr/share/java/jayatanaag.jar 
+3153 SecondaryNameNode
+3490 NodeManager
+4227 Jps
+2840 NameNode
+4009 MRAppMaster
+2972 DataNode
+3853 RunJar
+3357 ResourceManager
+4141 YarnChild
+2334 org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar
+4142 YarnChild
+YARN:>$ 
+YARN:>$ jps
+Picked up JAVA_TOOL_OPTIONS: -javaagent:/usr/share/java/jayatanaag.jar 
+3153 SecondaryNameNode
+3490 NodeManager
+2840 NameNode
+4009 MRAppMaster
+2972 DataNode
+3853 RunJar
+3357 ResourceManager
+4141 YarnChild
+2334 org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar
+4142 YarnChild
+4239 Jps
+YARN:>$ jps
+Picked up JAVA_TOOL_OPTIONS: -javaagent:/usr/share/java/jayatanaag.jar 
+3153 SecondaryNameNode
+3490 NodeManager
+2840 NameNode
+4009 MRAppMaster
+2972 DataNode
+3853 RunJar
+3357 ResourceManager
+4269 Jps
+4141 YarnChild
+2334 org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar
+4142 YarnChild
+YARN:>$ jps
+Picked up JAVA_TOOL_OPTIONS: -javaagent:/usr/share/java/jayatanaag.jar 
+3153 SecondaryNameNode
+3490 NodeManager
+2840 NameNode
+4009 MRAppMaster
+4316 Jps
+2972 DataNode
+3853 RunJar
+3357 ResourceManager
+2334 org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar

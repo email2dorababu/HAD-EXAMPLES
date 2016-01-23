@@ -29,8 +29,9 @@ public class ReduceSideJoinReducer
 	DeptName= new Text(itr.next());
 	while(itr.hasNext()){
 		Text empRec=itr.next();
-		Text outVal=new Text(empRec.toString()+"\t"+DeptName.toString());
-		context.write(key.getFirst(), outVal);
+		//THe below line prints all content.
+		//Text outVal=new Text(empRec.toString()+"\t"+DeptName.toString());
+		context.write(empRec, DeptName);
 	}
 		
 }
