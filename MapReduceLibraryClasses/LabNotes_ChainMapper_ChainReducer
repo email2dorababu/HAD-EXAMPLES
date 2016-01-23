@@ -1,0 +1,67 @@
+hadoop jar MapReduceLibraryClasses_CMCR.jar ChainMapper_ChainReducer /user/LocalToHdfs/ExampleFile.txt /user/CMCR_Out/
+
+
+// first encountered java.lang.NoSuchMethodException: ChainMapper_ChainReducer$SplitMapper.<init>()
+for this i have made mapper and reducer classes static (stack overflow)
+
+
+hadoop fs -cat /user/CMCR_Out2/*
+
+lacolmorfypoc-	1
+ipa	1
+sa	1
+ilc	1
+.tneilc	1
+dnammoc	1
+ypoc	1
+elif	3
+morf	1
+sfdh	1
+ih	1
+tupni	1
+si	2
+avaj	1
+lacol	1
+tneilcavajsfdhotlacol	1
+margorp	1
+emas	1
+metsys	1
+eht	3
+siht	2
+ot	2
+gnisu	1
+
+Input is 
+Hi this is the input file to program LocalToHdfsJavaClient API
+
+Copy the file from local file system to HDFS using Java Client.
+
+This is same as the CLI -copyFromLocal command
+
+-----------------------------------------------------
+Commented the below two lines.
+//Configuration ReverseMapperConfig=new Configuration(false);
+//ChainReducer.addMapper(job, ReverseMapper.class, Text.class, IntWritable.class, Text.class, IntWritable.class, ReverseMapperConfig);
+-copyfromlocal	1
+api	1
+as	1
+cli	1
+client.	1
+command	1
+copy	1
+file	3
+from	1
+hdfs	1
+hi	1
+input	1
+is	2
+java	1
+local	1
+localtohdfsjavaclient	1
+program	1
+same	1
+system	1
+the	3
+this	2
+to	2
+using	1
