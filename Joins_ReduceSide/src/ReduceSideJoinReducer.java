@@ -5,13 +5,17 @@ import org.apache.hadoop.io.*;
 import org.apache.hadoop.mapreduce.Reducer;
 
 public class ReduceSideJoinReducer 
-	extends Reducer< Text,BigramTextPair, Text, Text>{
+	extends Reducer< BigramTextPair,Text, Text, Text>{
 
 	
 	//private Text val_out=new Text();
 //	private String str="";
 	private Text DeptName=new Text();
 	 
+
+	protected void setup(Context context) throws IOException, InterruptedException{
+		context.write(new Text("EMPNO_EMPNAME_SALARY_DEPTID"),new Text("DEPTID_DEPTNAME"));
+	}
 	 
 	
 	protected void reduce(BigramTextPair key, Iterable<Text> values,
