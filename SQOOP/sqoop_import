@@ -1,0 +1,101 @@
+Import Single table
+
+sqoop import --connect jdbc:mysql://localhost/sqoop --username sqoop --password sqoop --table cities
+
+
+The no of rows in table are 3 hence there are 3 mappers launched, i.e 3 YarnChild processes.
+and There is one MRAppmaser for this job.
+
+YARN:>$ jps
+3824 DataNode
+7890 YarnChild
+7955 YarnChild
+7892 YarnChild
+4038 SecondaryNameNode
+4214 ResourceManager
+7047 Sqoop
+7690 MRAppMaster
+3690 NameNode
+4347 NodeManager
+
+see The webui, see all applications in 8088 port.
+
+User: 	ubuntu
+Name: 	cities.jar
+Application Type: 	MAPREDUCE
+Application Tags: 	
+YarnApplicationState: 	FINISHED
+FinalStatus Reported by AM: 	SUCCEEDED
+Started: 	Sun Feb 07 11:28:56 -0500 2016
+Elapsed: 	47sec 
+
+If we see the log on the command prompt - 
+Setting your password on the command-line is insecure. Consider using -P instead
+SELECT t.* FROM `cities` AS t LIMIT 1
+
+Writing jar file: /tmp/sqoop-ubuntu/compile/eaf59cff661370418d3dea1af4ab8450/cities.jar
+
+manager.MySQLManager: It looks like you are importing from mysql.
+manager.MySQLManager: This transfer can be faster! Use the --direct
+Setting zero DATETIME behavior to convertToNull (mysql)
+
+Connecting to ResourceManager at /0.0.0.0:8032
+db.DBInputFormat: Using read commited transaction isolation
+db.DataDrivenDBInputFormat: BoundingValsQuery: SELECT MIN(`id`), MAX(`id`) FROM `cities`
+mapreduce.JobSubmitter: number of splits:3
+Running job: job_1454845440912_0001
+Job job_1454845440912_0001 running in uber mode : false
+
+Retrieved 3 records.
+-----------------------------------------
+
+The default location for the imported sql in HDFS is  /user/${user_name}/table_name
+
+In this example our output is written  in /user/ubuntu/cities
+you can find this folder by browsing the file system   localhost:50070
+
+
+hadoop fs -cat /user/ubuntu/cities/*
+1,USA,Palo Alto
+2,Czech Republic,Brno
+3,USA,Sunnyvale
+
+-----------------------------------------------------
+
+I Have entered a total of 20 records in the table cities
+It created 4 mappers.  - Default no of mappers launched by Sqoop is 4.
+Created part-m-00000,part-m-00001,part-m-00002,part-m-00003
+
+YARN:>$ hadoop fs -cat /user/ubuntu/cities/part-m-00000
+1,USA,Palo Alto
+2,Czech Republic,Brno
+3,USA,Sunnyvale
+4,india,mumbai
+5,india,mumbai
+
+YARN:>$ hadoop fs -cat /user/ubuntu/cities/part-m-00001
+6,india,mumbai
+7,india,mumbai
+8,india,mumbai
+9,india,mumbai
+10,india,mumbai
+
+YARN:>$ hadoop fs -cat /user/ubuntu/cities/part-m-00002
+
+11,india,mumbai
+12,india,mumbai
+13,india,mumbai
+14,india,mumbai
+15,india,mumbai
+
+YARN:>$ hadoop fs -cat /user/ubuntu/cities/part-m-00003
+
+16,india,mumbai
+17,india,mumbai
+18,india,mumbai
+19,india,mumbai
+20,india,mumbai
+
+
+Sqoop will automatically find the primary key field ,and distributes equal no of 
+records to each mapper.
