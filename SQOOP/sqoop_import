@@ -33,6 +33,10 @@ If we see the log on the command prompt -
 Setting your password on the command-line is insecure. Consider using -P instead
 SELECT t.* FROM `cities` AS t LIMIT 1
 
+
+orm.CompilationManager: HADOOP_MAPRED_HOME is /home/ubuntu/YARNBOX/hadoop-2.7.1
+Note: /tmp/sqoop-ubuntu/compile/456ab653ed37a3300701c888dd93e09a/cities.java uses or overrides a deprecated API
+
 Writing jar file: /tmp/sqoop-ubuntu/compile/eaf59cff661370418d3dea1af4ab8450/cities.jar
 
 manager.MySQLManager: It looks like you are importing from mysql.
@@ -63,6 +67,15 @@ hadoop fs -cat /user/ubuntu/cities/*
 -----------------------------------------------------
 
 I Have entered a total of 20 records in the table cities
+
+insert into cities values(4,'india','mumbai'),(5,'india','mumbai'),
+(6,'india','mumbai'),(7,'india','mumbai'),(8,'india','mumbai'),
+(9,'india','mumbai'),(10,'india','mumbai'),(11,'india','mumbai'),
+(12,'india','mumbai'),(13,'india','mumbai'),(14,'india','mumbai'),
+(15,'india','mumbai'),(16,'india','mumbai'),(17,'india','mumbai'),
+(18,'india','mumbai'),(19,'india','mumbai'),(20,'india','mumbai');
+
+
 It created 4 mappers.  - Default no of mappers launched by Sqoop is 4.
 Created part-m-00000,part-m-00001,part-m-00002,part-m-00003
 

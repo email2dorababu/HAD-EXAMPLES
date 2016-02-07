@@ -1,0 +1,28 @@
+Import Single table
+
+sqoop import --connect jdbc:mysql://localhost/sqoop \
+--username sqoop --password sqoop --table cities  --as-sequencefile \
+--target-dir /user/ubuntu/cities_seq
+
+YARN:>$ pwd
+/home/ubuntu/workspace
+
+ A Java class cities.java is created in the PWD.
+ 
+ 
+
+sqoop import --connect jdbc:mysql://localhost/sqoop \
+--username sqoop --password sqoop --table cities \
+ --as-avrodatafile --target-dir /user/ubuntu/cities_avro
+ 
+ 
+ A file named cities.avsc file is generated in PWD
+
+hadoop fs  -text /user/ubuntu/cities_avro/*
+16/02/07 14:35:39 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+{"id":{"long":1},"country":{"string":"USA"},"city":{"string":"Palo Alto"}}
+{"id":{"long":2},"country":{"string":"Czech Republic"},"city":{"string":"Brno"}}
+{"id":{"long":3},"country":{"string":"USA"},"city":{"string":"Sunnyvale"}}
+{"id":{"long":4},"country":{"string":"india"},"city":{"string":"mumbai"}}
+{"id":{"long":5},"country":{"string":"india"},"city":{"string":"mumbai"}}
+{"id":{"long":6},"country":{"string":"india"},"city":{"string":"mumbai"}}

@@ -1,0 +1,8 @@
+Import Single table
+
+sqoop import --connect jdbc:mysql://localhost/sqoop \
+
+--username sqoop --password sqoop --table cities --compress --target-dir /user/ubuntu/cities_compress
+
+
+hadoop fs  -text /user/ubuntu/cities_compress/*
