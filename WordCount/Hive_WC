@@ -1,0 +1,8 @@
+CREATE TABLE docs(line STRING);
+Load DATA INPATH 'docs' OVERWRITE INTO TABLE docs;
+
+CREATE TABLE word_count AS
+SELECT word,count(1) as count FROM
+	(select explode(split(line,'\s')) AS word FROM docs) w
+GROUP BY word
+ORDER BY word;

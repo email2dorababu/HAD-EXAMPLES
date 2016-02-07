@@ -1,0 +1,8 @@
+input =load 'wordcountOip' as (line);
+
+
+
+words = foreach input generate flatten(TOKENIZE(line)) as word;
+grpd=group words by word;
+cntd=foreach grpd generate group, COUNT(words);
+dump cntd;
