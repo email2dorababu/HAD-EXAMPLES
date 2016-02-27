@@ -1,0 +1,36 @@
+https://www.quora.com/Has-anyone-tried-installing-oozie-4-0-0-with-apache-hadoop-2-2-0-and-java1-7-0_45-on-ubuntu
+Install Maven
+sudo apt-get install maven  -- din't work
+
+download the maven tarball from apache
+extract
+sudo cp -R /home/ubuntu/Downloads/apache-maven-3.3.9 /usr/local
+sudo ln -s /usr/local/apache-maven-3.3.9/bin/mvn /usr/bin/mvn
+mvn -version
+
+successful.
+
+
+Download ExtJs library??? do not know how to!!!
+Download, extract Oozie, go to bin folder.
+
+mv oozie0.14.0 oozie
+
+./mkdistro.sh -DskipTests -Dhadoopversion=2.7.1
+
+
+
+Failed to execute goal on project oozie-hadoop-distcp: 
+Could not resolve dependencies for project org.apache.oozie:
+oozie-hadoop-distcp:jar:hadoop-1-4.2.0: 
+Failed to collect dependencies at org.apache.hadoop:
+hadoop-tools:jar:2.7.1: Failed to read artifact descriptor for 
+org.apache.hadoop:hadoop-tools:jar:2.7.1: 
+
+
+Very useful while debugging the erros
+http://gauravkohli.com/2014/08/26/apache-oozie-installation-on-hadoop-2-4-1/
+
+
+in discp pom - changed hadoop-distcp-2.7.1
+ <version>hadoop-0.23-4.2.0</version>
