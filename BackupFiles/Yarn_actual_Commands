@@ -7,7 +7,7 @@ here -P is capital P.
 
 ssh localhost
 
-always use sudo 
+always donot use sudo 
 
 
 #####################
