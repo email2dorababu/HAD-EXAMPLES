@@ -1,0 +1,50 @@
+Step 1: Check Hadoop and Java is running?
+
+YARN:>$ hadoop version
+Hadoop 2.7.2
+Subversion https://git-wip-us.apache.org/repos/asf/hadoop.git -r b165c4fe8a74265c792ce23f546c64604acf0e41
+Compiled by jenkins on 2016-01-26T00:08Z
+Compiled with protoc 2.5.0
+From source with checksum d0fda26633fa762bff87ec759ebe689c
+This command was run using /home/hadoop/YARNBOX/hadoop-2.7.2/share/hadoop/common/hadoop-common-2.7.2.jar
+
+
+
+Step 2: Setting up environment for Hive
+You can set up the Hive environment by appending the following lines to ~/.bashrc file:
+YARN:>$ sudo gedit ~/.bashrc
+
+
+# HIVE INSTALLATION:
+# HIVE INSTALLATION:
+export HIVE_HOME=/home/hadoop/YARNBOX/apache-hive-2.0.0-bin
+export PATH=$PATH:$HIVE_HOME/bin
+export HIVE_CONF_DIR=$HIVE_HOME/conf
+export HIVE_CLASSPATH=$HIVE_CONF_DIR
+
+export CLASSPATH=$CLASSPATH:$HADOOP_HOME/lib/*:.
+export CLASSPATH=$CLASSPATH:$HIVE_HOME/lib/*:.
+
+
+$ source ~/.bashrc
+
+Step 3: Configuring Hive
+$ cd $HIVE_HOME/conf
+$ cp hive-env.sh.template hive-env.sh
+
+Append export HADOOP_HOME=/home/hadoop/YARNBOX/hadoop-2.7.2 to the hive-env.sh file.
+
+Step 4: 
+sudo chmod -R 777 /home/hadoop/YARNBOX/hadoop-2.7.2
+sudo chmod -R 777 /home/hadoop/YARNBOX/apache-hive-2.0.0-bin
+
+
+Step 5: verify the Hive instllation by 
+> hive -H
+
+
+COntinue to LAB 1. do not start hive.
+
+
+
+

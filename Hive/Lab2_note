@@ -1,0 +1,97 @@
+Download data set : http://hortonworks.com/hadoop-tutorial/how-to-process-data-with-apache-hive/#hive
+
+or http://stackoverflow.com/questions/10843892/download-large-data-for-hadoop
+-------------------------------
+
+Install Mysql - From https://help.ubuntu.com/12.04/serverguide/mysql.html
+
+sudo apt-get update
+sudo apt-get upgrade
+
+
+YARN:>$ sudo apt-get install mysql-server
+UN/PWD is root/root
+
+
+check whether mysql is running:
+sudo netstat -tap | grep mysql
+
+tcp        0      0 localhost:mysql         *:*                     LISTEN      22140/mysqld    
+ You can edit the /etc/mysql/my.cnf file to configure the basic settings -- log file, port number, etc. For example, to configure MySQL to listen for connections from network hosts, change the bind-address directive to the server's IP address:
+
+bind-address            = 192.168.0.5
+
+sudo service mysql restart
+
+ If you would like to change the MySQL root password, in a terminal enter:
+
+sudo dpkg-reconfigure mysql-server-5.5
+
+The MySQL daemon will be stopped, and you will be prompted to enter a new password. 	
+--------------------------------------------------------------------------------------------
+
+YARN:>$ mysql -u root -p
+exit;
+
+
+From https://dzone.com/articles/how-configure-mysql-metastore
+
+Install the MySQL Java Connector –
+	
+$ sudo apt-get install libmysql-java
+
+Create soft link for connector in Hive lib directory  or copy connector jar to lib folder  –
+
+ln -s /usr/share/java/mysql-connector-java.jar $HIVE_HOME/lib/mysql-connector-java.jar
+
+
+
+--------------------------------------
+Downloaded and placed the Jar file in /home/hadoop/YARNBOX/apache-hive-2.0.0-bin/lib
+
+--------------------------------------------
+
+Now to set mysql as metastore:
+
+YARN:>$ schematool -initSchema -dbType mysql
+Metastore connection URL:	 jdbc:derby:;databaseName=metastore_db;create=true
+Metastore Connection Driver :	 org.apache.derby.jdbc.EmbeddedDriver
+
+
+so need to change hive-site.xml.
+
+----------------------------------------------------
+here metastore is the database name and no need to give port, takes from defaults.
+jdbc:mysql://localhost/metastore?createDatabaseIfNotExist=true
+
+so i want to maintain it as hive_db.
+jdbc:mysql://localhost/hive_db?createDatabaseIfNotExist=true
+
+driver name - com.mysql.jdbc.Driver
+UN/PWD - root and 
+
+hive.metastore.warehouse.dir - maintained the same.
+
+---------------------------------------------
+Now once the hive-site.xml is changed, the schema tool is successfully working.
+
+YARN:>$ schematool -initSchema -dbType mysql
+Metastore connection URL:	 jdbc:mysql://localhost/hive_db?createDatabaseIfNotExist=true
+Metastore Connection Driver :	 com.mysql.jdbc.Driver
+Metastore connection User:	 root
+Starting metastore schema initialization to 2.0.0
+Initialization script hive-schema-2.0.0.mysql.sql
+Initialization script completed
+schemaTool completed
+-------------------------------------------
+
+
+
+
+Now  hive_db is created in the mysql database.
+show databases:
+show tables  - will show so many tables.
+
+
+Now login to hive.
+hive>!clear;  screen cleared.
